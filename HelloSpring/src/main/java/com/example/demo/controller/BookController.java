@@ -15,7 +15,7 @@ import com.example.demo.repository.BookRepository;
 @RestController
 public class BookController {
 	
-	
+	@Autowired
 	BookRepository repository;
 	
 	public BookController(BookRepository repository)
