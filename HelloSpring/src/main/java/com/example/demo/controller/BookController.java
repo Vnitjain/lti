@@ -1,8 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +23,7 @@ public class BookController {
 	@PostMapping("/saveBook")
 	public String storeBook(@RequestBody Book b)
 	{
-		Book s=repository.save(b);
+		repository.save(b);
 		if(b!=null)
 		{
 			return "Success";
@@ -41,22 +38,19 @@ public class BookController {
 	@PostMapping("/bookById")
 	public Book getBook(@RequestParam Integer id)
 	{
-		Book b=repository.findById(id).get();
-		return b;
+	return repository.findById(id).get();
 	}
 	
 	@PostMapping("/bookByName")
 	public Book getBookByName(@RequestParam String name)
 	{
-		Book b=repository.findByName(name);
-		return b;
+		return repository.findByName(name);
 	}
 	
 	@PostMapping("/allBooks")
 	public Iterable<Book> getAllBooks()
 	{
-		Iterable<Book> i=repository.findAll();
-		return i;
+		return repository.findAll();
 	}
 	
 	
